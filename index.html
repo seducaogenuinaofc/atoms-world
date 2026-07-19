@@ -1,30 +1,554 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
-    <link data-mgx-overview="icon" rel="icon" type="image/x-icon" href="images/favicon_atoms.ico">
-    <link data-mgx-overview="dark-icon" rel="icon" media="(prefers-color-scheme: dark)" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-mgx-overview="title">Atoms Generated Project</title>
-    <meta data-mgx-overview="description" name="description" content="Atoms Generated Project">
-    <meta name="author" content="Atoms">
+    <title>Seducção Genuína</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta data-mgx-overview="og:title" property="og:title" content="Atoms Generated Project">
-    <meta data-mgx-overview="og:description" property="og:description" content="Atoms Generated Project">
-    <meta data-mgx-overview="og:image" property="og:image" content="">
-    <meta property="og:type" content="website">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-    <meta data-mgx-overview="twitter:title" name="twitter:title" content="Atoms Generated Project">
-    <meta data-mgx-overview="twitter:description" name="twitter:description" content="Atoms Generated Project">
-    <meta data-mgx-overview="twitter:image" name="twitter:image" content="">
-    <script type="module" crossorigin="" src="js/index-zl4TVeHN.js"></script>
-    <link rel="modulepreload" crossorigin="" href="/assets/ui-vendor-DNFFrvqq.js">
-    <link rel="modulepreload" crossorigin="" href="/assets/utils-vendor-1qmDiPJe.js">
-    <link rel="modulepreload" crossorigin="" href="/assets/query-vendor-DpG32vKc.js">
-    <link rel="modulepreload" crossorigin="" href="/assets/router-vendor-CxVq3dhE.js">
-    <link rel="stylesheet" crossorigin="" href="css/index-BglHMgbc.css">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -30%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 72px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 48px;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #aaaaaa;
+            margin: 0;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #aaaaaa;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 120px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-card p {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: #888888;
+            margin: 0;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">SEDUCÇÃO GENUÍNA</div>
+        <ul>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#testimonials">Depoimentos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Seducção Genuína</h1>
+            <p>Descubra a arte de se conectar de forma autêntica e atrair naturalmente as pessoas certas para sua vida.</p>
+            <a href="https://pay.kiwify.com.br/K1QTa5S" class="cta-button">Começar Agora</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h2 class="section-title">Sobre Nós</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Por que escolher Seducção Genuína?</h3>
+                <p>Somos especialistas em ajudar você a desenvolver confiança autêntica e criar conexões significativas. Nosso método é baseado em psicologia comportamental e comunicação eficaz.</p>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <div>
+                            <h4>Abordagem Autêntica</h4>
+                            <p>Técnicas que respeitam sua personalidade verdadeira</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <h4>Resultados Comprovados</h4>
+                            <p>Milhares de pessoas transformadas em apenas 90 dias</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <div>
+                            <h4>Mentoria Personalizada</h4>
+                            <p>Plano exclusivo adaptado ao seu estilo e objetivos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding: 40px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); border-radius: 16px;">
+                <p style="font-size: 64px; margin: 0;">🌟</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-icon">🎓</div>
+                    <h3>Treinamento Completo</h3>
+                    <p>Programa intensivo com módulos de comunicação, linguagem corporal e inteligência emocional.</p>
+                    <a href="https://pay.kiwify.com.br/K1QTa5S" class="cta-button">Saiba Mais</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">👥</div>
+                    <h3>Sessões 1-a-1</h3>
+                    <p>Coaching personalizado para superar limitações específicas e potencializar seus pontos fortes.</p>
+                    <a href="https://pay.kiwify.com.br/K1QTa5S" class="cta-button">Saiba Mais</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">📱</div>
+                    <h3>Grupo Exclusivo</h3>
+                    <p>Comunidade de homens e mulheres focados em crescimento pessoal e relacionamentos genuínos.</p>
+                    <a href="https://pay.kiwify.com.br/K1QTa5S" class="cta-button">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Depoimentos</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Transformei completamente minha forma de me relacionar. Agora atraio pessoas de qualidade naturalmente."</p>
+                <div class
+
   </head>
 
   <body>
